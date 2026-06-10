@@ -5,18 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const body = document.body;
 
-  // Toggle between dark and light themes
-  themeToggleBtn.addEventListener('click', () => {
-    if (body.classList.contains('dark-theme')) {
-      body.classList.remove('dark-theme');
-      body.classList.add('light-theme');
-      themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    } else {
-      body.classList.remove('light-theme');
-      body.classList.add('dark-theme');
-      themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    }
-  });
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      } else {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      }
+    });
+  }
 
   // --- Publication Searching & Filtering ---
   const searchInput = document.getElementById('pub-search');
@@ -48,40 +49,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Search input handler
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value.toLowerCase().trim();
-    filterPublications();
-  });
-
-  // Filter buttons click handler
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.getAttribute('data-filter');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
       filterPublications();
     });
-  });
+  }
+
+  // Filter buttons click handler
+  if (filterButtons && filterButtons.length > 0) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.getAttribute('data-filter');
+        filterPublications();
+      });
+    });
+  }
 
   // --- Citation Copying (BibTeX) ---
   const copyBtns = document.querySelectorAll('.copy-bib-btn');
   const toast = document.getElementById('toast');
 
-  copyBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const bibtex = btn.getAttribute('data-bib');
-      
-      navigator.clipboard.writeText(bibtex).then(() => {
-        // Show success toast notification
-        toast.classList.add('show');
+  if (copyBtns && copyBtns.length > 0 && toast) {
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const bibtex = btn.getAttribute('data-bib');
         
-        // Hide toast after 3 seconds
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 3000);
-      }).catch(err => {
-        console.error('Failed to copy text: ', err);
+        navigator.clipboard.writeText(bibtex).then(() => {
+          // Show success toast notification
+          toast.classList.add('show');
+          
+          // Hide toast after 3 seconds
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 3000);
+        }).catch(err => {
+          console.error('Failed to copy text: ', err);
+        });
       });
     });
-  });
+  }
 });
