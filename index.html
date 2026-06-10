@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Paul Chu | Scientific Profile & CV</title>
+  <meta name="description" content="Personal academic and scientific profile of Dr. Paul Chu. Research in Machine Learning, Computer Vision, and AI Systems.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo">PC<span>.</span></a>
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link text-btn">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" aria-label="Toggle Theme" class="theme-btn">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button onclick="window.print()" class="print-btn" title="Download CV as PDF">
+          <i class="fa-solid fa-file-pdf"></i> <span>Print CV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section / About -->
+  <section id="about" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="badge">Research Scientist & AI Researcher</span>
+        <h1 class="hero-title">Dr. Paul Chu</h1>
+        <p class="hero-subtitle">Assistant Professor of Computer Science at State University</p>
+        
+        <p class="hero-bio">
+          My research lies at the intersection of machine learning, neural network architectures, and robust computer vision. I am interested in building efficient AI systems that perform reliably under uncertainty. Currently, my lab is exploring self-supervised learning representations for dynamic environments.
+        </p>
+
+        <!-- Academic & Social Badges/Links -->
+        <div class="social-links">
+          <a href="https://scholar.google.com" target="_blank" class="social-icon" title="Google Scholar">
+            <i class="fa-brands fa-google-scholar"></i> Scholar
+          </a>
+          <a href="https://orcid.org" target="_blank" class="social-icon" title="ORCID Profile">
+            <i class="fa-brands fa-orcid"></i> ORCID
+          </a>
+          <a href="https://github.com/paulchueagle" target="_blank" class="social-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="mailto:p.chu@university.edu" class="social-icon" title="Email">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-container">
+        <div class="image-wrapper">
+          <div class="avatar-fallback">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Grid Layout for CV & Publications -->
+  <main class="main-container">
+    
+    <!-- Experience & Education Timeline -->
+    <section id="experience" class="section">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Experience & Education</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024 - Present</div>
+          <div class="timeline-content">
+            <h3>Assistant Professor</h3>
+            <span class="timeline-org">State University, Dept. of Computer Science</span>
+            <p>Leading the Robust AI Lab. Teaching Graduate Computer Vision and Advanced Machine Learning courses.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022 - 2024</div>
+          <div class="timeline-content">
+            <h3>Postdoctoral Researcher</h3>
+            <span class="timeline-org">Tech Research Institute</span>
+            <p>Advised by Prof. Alex Rivera. Focused on self-supervised representations for real-time robotic vision.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2017 - 2022</div>
+          <div class="timeline-content">
+            <h3>Ph.D. in Computer Science</h3>
+            <span class="timeline-org">Science Academy</span>
+            <p>Thesis: *Robust Representation Learning under Distribution Shift*. Advised by Dr. Sarah Jenkins.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2013 - 2017</div>
+          <div class="timeline-content">
+            <h3>B.S. in Computer Science & Mathematics</h3>
+            <span class="timeline-org">Apex University</span>
+            <p>Graduated Summa Cum Laude.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+      <h2 class="section-title"><i class="fa-solid fa-book-open"></i> Selected Publications</h2>
+      
+      <!-- Filters and Search -->
+      <div class="publications-toolbar">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="pub-search" placeholder="Search publications by title, venue, or keyword...">
+        </div>
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="journal">Journals</button>
+          <button class="filter-btn" data-filter="conference">Conferences</button>
+          <button class="filter-btn" data-filter="preprint">Preprints</button>
+        </div>
+      </div>
+
+      <!-- Publication List -->
+      <div class="pub-list">
+        
+        <div class="pub-card" data-category="conference" data-year="2025">
+          <span class="pub-type conference">CVPR 2025</span>
+          <h3 class="pub-title">Self-Supervised Representation Learning for Dynamic Out-of-Distribution Vision</h3>
+          <div class="pub-authors"><strong>Paul Chu</strong>, Alex Rivera, Sarah Jenkins</div>
+          <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025</div>
+          <div class="pub-links">
+            <a href="#" class="pub-link-btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+            <a href="#" class="pub-link-btn"><i class="fa-brands fa-github"></i> Code</a>
+            <button class="pub-link-btn copy-bib-btn" data-bib='@inproceedings{chu2025self,
+  title={Self-Supervised Representation Learning for Dynamic Out-of-Distribution Vision},
+  author={Chu, Paul and Rivera, Alex and Jenkins, Sarah},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}'><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </div>
+
+        <div class="pub-card" data-category="journal" data-year="2024">
+          <span class="pub-type journal">IEEE TPAMI 2024</span>
+          <h3 class="pub-title">Robust Spatial-Temporal Alignment in Deep Neural Networks</h3>
+          <div class="pub-authors"><strong>Paul Chu</strong>, Sarah Jenkins</div>
+          <div class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024</div>
+          <div class="pub-links">
+            <a href="#" class="pub-link-btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+            <button class="pub-link-btn copy-bib-btn" data-bib='@article{chu2024robust,
+  title={Robust Spatial-Temporal Alignment in Deep Neural Networks},
+  author={Chu, Paul and Jenkins, Sarah},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
+}'><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </div>
+
+        <div class="pub-card" data-category="preprint" data-year="2024">
+          <span class="pub-type preprint">arXiv 2024</span>
+          <h3 class="pub-title">Uncertainty Estimation in Latent Space for Embodied AI Agents</h3>
+          <div class="pub-authors">Elena Rostova, <strong>Paul Chu</strong>, Marcus Sterling</div>
+          <div class="pub-venue">arXiv preprint arXiv:2411.08942, 2024</div>
+          <div class="pub-links">
+            <a href="#" class="pub-link-btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+            <a href="#" class="pub-link-btn"><i class="fa-brands fa-github"></i> Project Page</a>
+            <button class="pub-link-btn copy-bib-btn" data-bib='@article{rostova2024uncertainty,
+  title={Uncertainty Estimation in Latent Space for Embodied AI Agents},
+  author={Rostova, Elena and Chu, Paul and Sterling, Marcus},
+  journal={arXiv preprint arXiv:2411.08942},
+  year={2024}
+}'><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </div>
+
+        <div class="pub-card" data-category="conference" data-year="2023">
+          <span class="pub-type conference">NeurIPS 2023</span>
+          <h3 class="pub-title">Adaptive Contrastive Learning with Class-Balancing Objectives</h3>
+          <div class="pub-authors"><strong>Paul Chu</strong>, Dr. Sarah Jenkins</div>
+          <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), 2023</div>
+          <div class="pub-links">
+            <a href="#" class="pub-link-btn"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+            <a href="#" class="pub-link-btn"><i class="fa-brands fa-github"></i> Code</a>
+            <button class="pub-link-btn copy-bib-btn" data-bib='@inproceedings{chu2023adaptive,
+  title={Adaptive Contrastive Learning with Class-Balancing Objectives},
+  author={Chu, Paul and Jenkins, Sarah},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2023}
+}'><i class="fa-solid fa-quote-right"></i> Cite</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Research Projects Section -->
+    <section id="projects" class="section">
+      <h2 class="section-title"><i class="fa-solid fa-flask"></i> Research Projects</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <div class="project-icon-wrapper">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3>Embodied AI & Robotics Vision</h3>
+          <p>Developing low-latency deep learning models for dynamic navigation and visual localization tasks in unstructured environments.</p>
+          <div class="project-tags">
+            <span>PyTorch</span>
+            <span>ROS</span>
+            <span>Self-Supervised</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon-wrapper">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>Robustness to Distribution Shifts</h3>
+          <p>Investigating mathematical bounds and training objectives that prevent deep vision classifiers from failing under unseen lighting or weather conditions.</p>
+          <div class="project-tags">
+            <span>Representation Learning</span>
+            <span>PyTorch</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="section contact-section">
+      <h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> Contact & Collaboration</h2>
+      <p class="contact-desc">I am always open to academic collaborations, PhD applications, or research discussions. Get in touch via email or visit my office.</p>
+      
+      <div class="contact-grid">
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <i class="fa-solid fa-building-columns"></i>
+            <div>
+              <h4>Office</h4>
+              <p>Room 405, Computer Science Building<br>State University Campus</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:p.chu@university.edu">p.chu@university.edu</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <textarea placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Dr. Paul Chu. Built with custom CSS/JS. Hosted on GitHub Pages.</p>
+  </footer>
+
+  <!-- Notification Banner for Citation Copying -->
+  <div id="toast" class="toast">Citation copied to clipboard!</div>
+
+  <!-- Custom Script -->
+  <script src="app.js"></script>
+</body>
+</html>
