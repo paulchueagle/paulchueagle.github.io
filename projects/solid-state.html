@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solid-State Lab Project | Cheng-Chi Chu CV</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-paper: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent-color: #2563eb; 
+      --accent-light: #eff6ff;
+      --accent-hover: #1d4ed8;
+      --border-color: #e2e8f0;
+      
+      /* Project Specific colors */
+      --physics-primary: #0f172a;
+      --physics-accent: #f59e0b; /* Amber accent */
+      --physics-accent-light: #fef3c7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 3rem 1rem;
+    }
+
+    .project-container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: var(--bg-paper);
+      padding: 4rem 5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--accent-color);
+      transform: translateX(-4px);
+    }
+
+    /* Header */
+    .project-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #b45309;
+      background-color: var(--physics-accent-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Metadata Grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .meta-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Content Sections */
+    .project-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-color);
+    }
+
+    .abstract-text {
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Personal Reflection Card */
+    .reflection-box {
+      background-color: #f8fafc;
+      border-left: 4px solid var(--physics-accent);
+      padding: 1.5rem 2rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .reflection-box h4 {
+      font-size: 1.1rem;
+      color: #b45309;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .reflection-box p {
+      font-size: 0.98rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Visualizer Container */
+    .visualizer-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .visualizer-controls {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .control-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--text-main);
+    }
+
+    .control-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .control-btn.active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    /* SVG Peierls Animation */
+    .peierls-svg {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .polymer-atom {
+      fill: #475569;
+      transition: cx 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .polymer-atom.carbon {
+      fill: #1e293b;
+    }
+
+    .polymer-bond {
+      stroke: #94a3b8;
+      stroke-width: 3px;
+      transition: x1 0.6s, x2 0.6s;
+    }
+
+    .polymer-bond.double {
+      stroke-width: 6px;
+      stroke-dasharray: 4 2;
+      stroke: var(--accent-color);
+    }
+
+    .band-gap-box {
+      transition: opacity 0.6s ease;
+    }
+
+    /* Plot Section */
+    .plot-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .chart-line {
+      fill: none;
+      stroke: var(--accent-color);
+      stroke-width: 3px;
+      transition: d 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .chart-dot {
+      fill: var(--accent-color);
+      transition: cy 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .chart-axis {
+      stroke: #94a3b8;
+      stroke-width: 1px;
+    }
+
+    .chart-grid {
+      stroke: #f1f5f9;
+      stroke-width: 1px;
+    }
+
+    .chart-text {
+      font-size: 10px;
+      fill: var(--text-muted);
+      font-family: inherit;
+    }
+
+    .chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+
+    /* Scientific insights lists */
+    .scientific-insights {
+      margin-top: 1.5rem;
+      padding-left: 1.2rem;
+    }
+
+    .scientific-insights li {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight-equation {
+      font-family: 'Merriweather', serif;
+      background: #f1f5f9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 2.5rem 2rem;
+      }
+      .visualizer-wrapper {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-container">
+    
+    <!-- Back Navigation -->
+    <a href="../index.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to CV
+    </a>
+
+    <!-- Header Section -->
+    <header class="project-header">
+      <span class="project-tag">Theoretical Physics Lab</span>
+      <h1 class="project-title">Theoretical Simulation of Magnetic Polymers: Su-Schrieffer-Heeger (SSH) Model</h1>
+      
+      <!-- Meta Grid -->
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Author</span>
+          <span class="meta-value">Cheng-Chi Chu (朱承基)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Advisor</span>
+          <span class="meta-value">Prof. Shih-Jye Sun (孫士傑)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">Oct 2019 – Jun 2021</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Institution</span>
+          <span class="meta-value">National University of Kaohsiung, Taiwan</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Personal Reflection Section -->
+    <section class="project-section">
+      <h2 class="section-title">Academic Journey &amp; Growth</h2>
+      <div class="reflection-box">
+        <h4><i class="fa-solid fa-graduation-cap"></i> stepping into Theoretical Lab Work</h4>
+        <p>
+          This undergraduate thesis project served as my introduction to the world of theoretical physics. Rather than jumping straight into complex coding, I focused heavily on building a solid academic foundation: reviewing textbooks and peer-reviewed literature on quantum mechanics and solid-state theory, and learning how to present these complex scientific ideas clearly to my advisor. On the technical side, this project gave me my first hands-on experience with UNIX/Linux operating systems and basic Fortran scripting for solving coupled matrix systems.
+        </p>
+      </div>
+    </section>
+
+    <!-- Research Summary -->
+    <section class="project-section">
+      <h2 class="section-title">Research Summary</h2>
+      <p class="abstract-text">
+        This research modeled the electronic structure and local magnetic moment distribution in dimerized polymer chains using a modified **Su-Schrieffer-Heeger (SSH) model**. The SSH model is a tight-binding framework that describes one-dimensional conducting polymers (like polyacetylene) by accounting for the coupling between electron hops and lattice vibrations (phonons).
+      </p>
+      <p class="abstract-text">
+        Our simulation examined a 50-site polymer chain under the influence of electron-phonon coupling ($\alpha$), lattice displacement ($u_n$), on-site electron-electron interactions ($U$), and nearest-neighbor interactions ($V$). By self-consistently solving the Hamiltonian matrix, we modeled the local magnetic moment $m(i)$ at each atom site $i$. We discovered that for a weak electron-phonon coupling ($\alpha = 0.25$), the magnetic moment undergoes spatial damping, dropping from its maximum at the boundary boundaries down to a stable, flat value of $0.008$ in the center of the polymer, creating a symmetrical butterfly-like spatial profile.
+      </p>
+    </section>
+
+    <!-- Interactive Dimerization Visualizer -->
+    <section class="project-section">
+      <h2 class="section-title">Interactive Peierls Dimerization</h2>
+      <p class="abstract-text" style="font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Conducting polymers undergo a **Peierls transition** (spontaneous dimerization) to reach a lower energy state. Use the controls below to visualize how the carbon chain shifts from a symmetric metallic state to a dimerized semiconductor state with alternating double/single bonds, which opens up an energy gap ($2\Delta$).
+      </p>
+
+      <div class="visualizer-wrapper">
+        <div class="visualizer-controls">
+          <button class="control-btn active" id="btn-metallic" onclick="toggleDimerization(false)">Symmetric Metallic State (No Dimerization)</button>
+          <button class="control-btn" id="btn-dimerized" onclick="toggleDimerization(true)">Dimerized State (Peierls Transition)</button>
+        </div>
+
+        <svg class="peierls-svg" viewBox="0 0 600 120">
+          <!-- Connectors (Bonds) -->
+          <line id="bond1" x1="50" y1="50" x2="130" y2="50" class="polymer-bond" />
+          <line id="bond2" x1="130" y1="50" x2="210" y2="50" class="polymer-bond" />
+          <line id="bond3" x1="210" y1="50" x2="290" y2="50" class="polymer-bond" />
+          <line id="bond4" x1="290" y1="50" x2="370" y2="50" class="polymer-bond" />
+          <line id="bond5" x1="370" y1="50" x2="450" y2="50" class="polymer-bond" />
+          <line id="bond6" x1="450" y1="50" x2="530" y2="50" class="polymer-bond" />
+
+          <!-- Additional double bond lines for dimerized state -->
+          <line id="dbond1" x1="50" y1="54" x2="110" y2="54" class="polymer-bond double" style="opacity:0;" />
+          <line id="dbond2" x1="210" y1="54" x2="270" y2="54" class="polymer-bond double" style="opacity:0;" />
+          <line id="dbond3" x1="370" y1="54" x2="430" y2="54" class="polymer-bond double" style="opacity:0;" />
+
+          <!-- Atoms (Carbon) -->
+          <circle id="atom1" cx="50" cy="50" r="14" class="polymer-atom carbon" />
+          <circle id="atom2" cx="130" cy="50" r="14" class="polymer-atom carbon" />
+          <circle id="atom3" cx="210" cy="50" r="14" class="polymer-atom carbon" />
+          <circle id="atom4" cx="290" cy="50" r="14" class="polymer-atom carbon" />
+          <circle id="atom5" cx="370" cy="50" r="14" class="polymer-atom carbon" />
+          <circle id="atom6" cx="450" cy="50" r="14" class="polymer-atom carbon" />
+          <circle id="atom7" cx="530" cy="50" r="14" class="polymer-atom carbon" />
+
+          <!-- Atom Labels -->
+          <text id="label1" x="50" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+          <text id="label2" x="130" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+          <text id="label3" x="210" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+          <text id="label4" x="290" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+          <text id="label5" x="370" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+          <text id="label6" x="450" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+          <text id="label7" x="530" y="82" font-size="10" text-anchor="middle" fill="#64748b">CH</text>
+
+          <!-- Band gap visualization overlay -->
+          <g class="band-gap-box" id="bg-box" style="opacity: 0;">
+            <rect x="230" y="10" width="120" height="25" fill="#fef3c7" stroke="#d97706" rx="4" />
+            <text x="290" y="26" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">Band Gap Opened (2Δ)</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Simulation Results & Plot -->
+    <section class="project-section">
+      <h2 class="section-title">Interactive Magnetic Moment Damping Plot</h2>
+      <p class="abstract-text">
+        In the self-consistent SSH simulation, the electron density and local magnetic moment $m(i)$ were simulated across 50 lattice sites. Toggle different values of the nearest-neighbor potential $V$ below to observe how neighbor interactions affect the boundary damping of the local magnetic moment.
+      </p>
+
+      <div class="plot-wrapper">
+        <div class="visualizer-controls" style="margin-bottom: 1.5rem; justify-content: center;">
+          <button class="control-btn active" id="btn-v0" onclick="updatePlot(0)">V = 0 (High Damping)</button>
+          <button class="control-btn" id="btn-v5" onclick="updatePlot(0.5)">V = 0.5 (Moderate Damping)</button>
+          <button class="control-btn" id="btn-v10" onclick="updatePlot(1.0)">V = 1.0 (Low Damping / Flat)</button>
+        </div>
+
+        <div class="chart-container">
+          <svg class="chart-svg" viewBox="0 0 700 280">
+            <!-- Grid Lines -->
+            <line x1="50" y1="20" x2="650" y2="20" class="chart-grid" />
+            <line x1="50" y1="75" x2="650" y2="75" class="chart-grid" />
+            <line x1="50" y1="130" x2="650" y2="130" class="chart-grid" />
+            <line x1="50" y1="185" x2="650" y2="185" class="chart-grid" />
+            <line x1="50" y1="240" x2="650" y2="240" class="chart-grid" />
+
+            <line x1="50" y1="240" x2="50" y2="20" class="chart-axis" />
+            <line x1="50" y1="240" x2="650" y2="240" class="chart-axis" />
+
+            <!-- Y Axis Labels (Magnetic Moment m) -->
+            <text x="40" y="24" class="chart-text" text-anchor="end">0.018</text>
+            <text x="40" y="79" class="chart-text" text-anchor="end">0.014</text>
+            <text x="40" y="134" class="chart-text" text-anchor="end">0.010</text>
+            <text x="40" y="189" class="chart-text" text-anchor="end">0.006</text>
+            <text x="40" y="244" class="chart-text" text-anchor="end">0.002</text>
+
+            <text x="15" y="130" class="chart-text" text-anchor="middle" transform="rotate(-90 15 130)" font-weight="600">Local Magnetic Moment m(i)</text>
+
+            <!-- X Axis Labels (Lattice Site Index i) -->
+            <text x="50" y="255" class="chart-text" text-anchor="middle">1</text>
+            <text x="170" y="255" class="chart-text" text-anchor="middle">10</text>
+            <text x="290" y="255" class="chart-text" text-anchor="middle">20</text>
+            <text x="410" y="255" class="chart-text" text-anchor="middle">30</text>
+            <text x="530" y="255" class="chart-text" text-anchor="middle">40</text>
+            <text x="650" y="255" class="chart-text" text-anchor="middle">50</text>
+
+            <text x="350" y="272" class="chart-text" text-anchor="middle" font-weight="600">Lattice Site (i)</text>
+
+            <!-- Chart Line Path -->
+            <path id="chart-path" class="chart-line" d="" />
+            
+            <!-- Group for chart dots -->
+            <g id="chart-dots"></g>
+          </svg>
+        </div>
+
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: var(--accent-color);"></div>
+            <span>Simulation Result (m)</span>
+          </div>
+          <div class="legend-item">
+            <i class="fa-solid fa-circle-info" style="color: var(--text-muted);"></i>
+            <span>Damping is highly symmetric, converging towards the core value of 0.008</span>
+          </div>
+        </div>
+      </div>
+
+      <ul class="scientific-insights">
+        <li><strong>Damping Effect</strong>: For <span class="highlight-equation">V = 0</span>, the magnetic moment is maximum at the chain boundaries (<span class="highlight-equation">m &approx; 0.016</span>) due to boundary state pinning, and decays rapidly to <span class="highlight-equation">m = 0.008</span> at the center.</li>
+        <li><strong>Neighbor Interactions</strong>: Increasing the neighbor potential <span class="highlight-equation">V</span> suppresses the boundary enhancement. At <span class="highlight-equation">V = 1.0</span>, the profile is almost completely flat, signifying a uniform charge/spin distribution.</li>
+        <li><strong>Oscillatory Sawtooth Behavior</strong>: In addition to the envelope damping, the moment exhibits slight sawtooth alterations between odd and even lattice sites, reflective of the dimerized lattice structure.</li>
+      </ul>
+    </section>
+
+    <!-- Key Competencies Demonstrated -->
+    <section class="project-section">
+      <h2 class="section-title">Applied Technical Competency</h2>
+      <ul class="scientific-insights" style="list-style-type: none; padding-left: 0;">
+        <li style="margin-bottom: 1.25rem;">
+          <strong style="color: var(--physics-accent); font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">
+            <i class="fa-solid fa-book-open"></i> Literature Review &amp; Presentation
+          </strong>
+          Gained significant experience summarizing complex solid-state articles, extracting core formulas, and conducting weekly progress presentations to research professors.
+        </li>
+        <li style="margin-bottom: 1.25rem;">
+          <strong style="color: var(--physics-accent); font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">
+            <i class="fa-solid fa-code"></i> Fortran Scripting &amp; Linux
+          </strong>
+          Configured basic Fortran scripts to run self-consistent matrix algebra routines on Linux terminals, solving eigenvalues for the tight-binding Hamiltonian.
+        </li>
+        <li style="margin-bottom: 1.25rem;">
+          <strong style="color: var(--physics-accent); font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">
+            <i class="fa-solid fa-atom"></i> Tight-Binding &amp; SSH Modeling
+          </strong>
+          Mastered theoretical physics basics, including the Peierls transition, Born-Oppenheimer approximation, variational principles, and SSH dimerized polymer modeling.
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    // JS for Dimerization Visualizer
+    function toggleDimerization(isDimerized) {
+      const btnMetallic = document.getElementById('btn-metallic');
+      const btnDimerized = document.getElementById('btn-dimerized');
+      const bgBox = document.getElementById('bg-box');
+
+      // Update Active Buttons
+      if (isDimerized) {
+        btnMetallic.classList.remove('active');
+        btnDimerized.classList.add('active');
+        bgBox.style.opacity = 1;
+      } else {
+        btnDimerized.classList.remove('active');
+        btnMetallic.classList.add('active');
+        bgBox.style.opacity = 0;
+      }
+
+      // Atom CX Coordinates (Symmetric spacing = 80px, Dimerized spacing = alternating 60px / 100px)
+      const positions = isDimerized 
+        ? [50, 110, 210, 270, 370, 430, 530] 
+        : [50, 130, 210, 290, 370, 450, 530];
+
+      // Update Atom Positions
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById(`atom${i}`).setAttribute('cx', positions[i-1]);
+        document.getElementById(`label${i}`).setAttribute('x', positions[i-1]);
+      }
+
+      // Update bond start / end coordinates
+      for (let i = 1; i <= 6; i++) {
+        const bond = document.getElementById(`bond${i}`);
+        bond.setAttribute('x1', positions[i-1]);
+        bond.setAttribute('x2', positions[i]);
+      }
+
+      // Toggle double bond overlays
+      const dbonds = [
+        { id: 'dbond1', x1: positions[0], x2: positions[1] },
+        { id: 'dbond2', x1: positions[2], x2: positions[3] },
+        { id: 'dbond3', x1: positions[4], x2: positions[5] }
+      ];
+
+      dbonds.forEach(db => {
+        const element = document.getElementById(db.id);
+        element.setAttribute('x1', db.x1);
+        element.setAttribute('x2', db.x2);
+        element.style.opacity = isDimerized ? 1 : 0;
+      });
+    }
+
+    // JS for Chart Plotter (50 sites, m(i) vs i)
+    // Formula for m(i) simulation approximation:
+    // V=0: Damped hourglass curve, m(i) starts at 0.016, damps to 0.008 at site 25
+    // V=0.5: Mild hourglass curve, m(i) starts at 0.012, damps to 0.008 at site 25
+    // V=1.0: Flat curve, m(i) fluctuates around 0.0085
+    function getCurveY(i, V) {
+      const x = i - 25.5; // shift center to 0
+      let base = 0.008;
+      
+      if (V === 0) {
+        // High damping: base + 0.008 * cosh(x/15) / cosh(24.5/15) with some sawtooth ripple
+        const envelope = 0.008 * Math.cosh(x / 14) / Math.cosh(24.5 / 14);
+        const sawtooth = 0.0006 * Math.sin(i * Math.PI);
+        return base + envelope + sawtooth;
+      } else if (V === 0.5) {
+        // Moderate damping: base + 0.004 * cosh(x/14) / cosh(...)
+        const envelope = 0.004 * Math.cosh(x / 14) / Math.cosh(24.5 / 14);
+        const sawtooth = 0.0004 * Math.sin(i * Math.PI);
+        return base + envelope + sawtooth;
+      } else {
+        // Flat profile (V = 1.0)
+        const envelope = 0.0008 * Math.cos(x / 12);
+        const sawtooth = 0.0003 * Math.sin(i * Math.PI);
+        return base + 0.0006 + envelope + sawtooth;
+      }
+    }
+
+    function updatePlot(V) {
+      // Update active controls
+      document.getElementById('btn-v0').classList.remove('active');
+      document.getElementById('btn-v5').classList.remove('active');
+      document.getElementById('btn-v10').classList.remove('active');
+
+      if (V === 0) document.getElementById('btn-v0').classList.add('active');
+      else if (V === 0.5) document.getElementById('btn-v5').classList.add('active');
+      else if (V === 1.0) document.getElementById('btn-v10').classList.add('active');
+
+      const pathElement = document.getElementById('chart-path');
+      const dotsGroup = document.getElementById('chart-dots');
+      dotsGroup.innerHTML = ''; // clear old dots
+
+      let pathD = '';
+
+      for (let i = 1; i <= 50; i++) {
+        // Chart dimensions: width 50 to 650 (600px span, so spacing is 600/49 = 12.24px per site)
+        const x = 50 + (i - 1) * (600 / 49);
+        const val = getCurveY(i, V);
+        // Chart height: y=20 to y=240 (220px span). Value span is 0.002 to 0.018 (span of 0.016)
+        // y_pixel = 240 - ((val - 0.002) / 0.016) * 220
+        const y = 240 - ((val - 0.002) / 0.016) * 220;
+
+        if (i === 1) {
+          pathD = `M ${x} ${y}`;
+        } else {
+          pathD += ` L ${x} ${y}`;
+        }
+
+        // Draw dot
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', x);
+        dot.setAttribute('cy', y);
+        dot.setAttribute('r', '3');
+        dot.setAttribute('class', 'chart-dot');
+        // Add style for hover/transition
+        dot.style.transition = 'cy 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        
+        // Tooltip description
+        const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+        title.textContent = `Site ${i}: m = ${val.toFixed(5)}`;
+        dot.appendChild(title);
+        
+        dotsGroup.appendChild(dot);
+      }
+
+      pathElement.setAttribute('d', pathD);
+    }
+
+    // Initialize
+    updatePlot(0);
+  </script>
+</body>
+</html>
