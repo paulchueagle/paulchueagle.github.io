@@ -253,6 +253,31 @@
       margin-right: 0.3rem;
     }
 
+    /* Project Link Button */
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .project-link-btn:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+    }
+
     @media print {
       body {
         background: none;
@@ -263,7 +288,7 @@
         padding: 0;
         max-width: 100%;
       }
-      .download-btn {
+      .download-btn, .project-link-btn {
         display: none !important;
       }
       .tag {
@@ -425,6 +450,9 @@
             <span class="location">Taiwan</span>
           </div>
           <p class="entry-desc">Analyzed thermodynamic and dynamical properties of galaxy clusters, identified heating mechanisms, and presented findings on gas density perturbation.</p>
+          <a href="projects/asiaa-2020.html" class="project-link-btn">
+            <i class="fa-solid fa-square-poll-vertical"></i> View Project Details &amp; Outcomes
+          </a>
         </div>
       </div>
     </section>

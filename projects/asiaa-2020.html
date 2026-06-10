@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASIAA Project | Cheng-Chi Chu CV</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-paper: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent-color: #2563eb; 
+      --accent-light: #eff6ff;
+      --accent-hover: #1d4ed8;
+      --border-color: #e2e8f0;
+      
+      /* Project Specific colors */
+      --galaxy-primary: #0f172a;
+      --galaxy-card-bg: #1e293b;
+      --galaxy-accent: #38bdf8;
+      --galaxy-accent-glow: rgba(56, 189, 248, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 3rem 1rem;
+    }
+
+    .project-container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: var(--bg-paper);
+      padding: 4rem 5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--accent-color);
+      transform: translateX(-4px);
+    }
+
+    /* Header */
+    .project-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Metadata Grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .meta-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Action Buttons */
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Content Sections */
+    .project-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-color);
+    }
+
+    .abstract-text {
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Highlights / Cards */
+    .science-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .highlight-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .highlight-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Interactive Pipeline SVG Styling */
+    .pipeline-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .pipeline-svg {
+      width: 100%;
+      min-width: 750px;
+      height: auto;
+      display: block;
+    }
+
+    .pipeline-node {
+      cursor: pointer;
+    }
+
+    .pipeline-node rect {
+      fill: #ffffff;
+      stroke: #cbd5e1;
+      stroke-width: 2px;
+      rx: 8px;
+      ry: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .pipeline-node:hover rect, .pipeline-node.active rect {
+      stroke: var(--accent-color);
+      fill: var(--accent-light);
+      filter: drop-shadow(0px 4px 6px rgba(37, 99, 235, 0.1));
+    }
+
+    .pipeline-node text.title {
+      font-size: 11px;
+      font-weight: 700;
+      fill: var(--text-main);
+      text-anchor: middle;
+    }
+
+    .pipeline-node text.step-num {
+      font-size: 10px;
+      font-weight: 800;
+      fill: var(--accent-color);
+      text-anchor: middle;
+    }
+
+    .pipeline-arrow {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 2px;
+      marker-end: url(#arrowhead);
+    }
+
+    /* Info Panel for Workflow Details */
+    .info-panel {
+      background-color: var(--accent-light);
+      border-left: 4px solid var(--accent-color);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin-top: 1rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .info-panel h4 {
+      font-size: 1rem;
+      color: var(--accent-color);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .info-panel p {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    /* Slope Visualization Section */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .comparison-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    }
+
+    .comparison-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .comparison-bar-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .comparison-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .bar-container {
+      background: #e2e8f0;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+    }
+
+    .bar-wcc {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    }
+
+    .bar-scc {
+      background: linear-gradient(90deg, #0f172a, #334155);
+    }
+
+    .ideal-marker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #ef4444;
+      z-index: 10;
+      opacity: 0.7;
+    }
+
+    .marker-label {
+      position: absolute;
+      top: -15px;
+      font-size: 9px;
+      color: #ef4444;
+      font-weight: 700;
+      transform: translateX(-50%);
+    }
+
+    /* Explanation list */
+    .scientific-insights {
+      margin-top: 1.5rem;
+      padding-left: 1.2rem;
+    }
+
+    .scientific-insights li {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight-equation {
+      font-family: 'Merriweather', serif;
+      background: #f1f5f9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 2.5rem 2rem;
+      }
+      .science-highlights, .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="project-container">
+    
+    <!-- Back Navigation -->
+    <a href="../index.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to CV
+    </a>
+
+    <!-- Header Section -->
+    <header class="project-header">
+      <span class="project-tag">ASIAA Summer Program</span>
+      <h1 class="project-title">Exploring Thermodynamic Properties of Galaxy Clusters: Isobaric or Adiabatic?</h1>
+      
+      <!-- Meta Grid -->
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Authors</span>
+          <span class="meta-value">Cheng-Chi Chu, Yihuan Gong</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Advisors</span>
+          <span class="meta-value">Shutaro Ueda &amp; Keiichi Umetsu</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">August 27, 2020</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Institution</span>
+          <span class="meta-value">ASIAA, Taiwan</span>
+        </div>
+      </div>
+
+      <!-- Action Row -->
+      <div class="action-row">
+        <a href="https://1drv.ms/p/c/3c2c20ed2e6686bc/IQC8hmYu7SAsIIA88mIAAAAAAVpSkl62OWVB5xegalxmRAU?e=Skx0g7" target="_blank" class="btn btn-primary">
+          <i class="fa-solid fa-display"></i> View Presentation Slide (OneDrive)
+        </a>
+      </div>
+    </header>
+
+    <!-- Abstract / Executive Summary -->
+    <section class="project-section">
+      <h2 class="section-title">Research Summary</h2>
+      <p class="abstract-text">
+        This research explores the thermodynamic properties of the Intracluster Medium (ICM) in galaxy clusters to investigate the heating mechanisms in Weak Cool Cores (WCC). Cool core clusters suffer from high radiative cooling rates, yet observations show they do not cool as fast as predicted. This points to active heating mechanisms counteracting the cooling.
+      </p>
+      <p class="abstract-text">
+        Our project focused on identifying whether the heating in WCC clusters is driven by **Active Galactic Nuclei (AGN) feedback** or **gas sloshing**. While AGN feedback heats clusters through jets and bubbles, it is difficult to detect in WCC. Gas sloshing, a result of cluster mergers, is an alternative mechanism. To distinguish between them, we analyzed the nature of gas density perturbations: if driven by sloshing, the process is expected to be **isobaric** (constant pressure); if driven by sound waves/shocks, it is expected to be **adiabatic**.
+      </p>
+
+      <div class="science-highlights">
+        <div class="highlight-card">
+          <div class="card-icon"><i class="fa-solid fa-temperature-three-quarters"></i></div>
+          <h4>Weak Cool Core (WCC) Heating</h4>
+          <p>Analyzing heating sources in galaxy clusters that have weak cool cores, comparing the spatial distribution of thermodynamic features like temperature, entropy, and metallicity.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h4>Perturbation Analysis</h4>
+          <p>Fitting profiles and calculating ratios between positive and negative excess gas density regions to characterize the physical process (Isobaric vs Adiabatic).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analysis Pipeline / Interactive SVG -->
+    <section class="project-section">
+      <h2 class="section-title">Chandra X-ray Data Analysis Pipeline</h2>
+      <p class="abstract-text" style="font-size: 0.95rem; margin-bottom: 1.25rem;">
+        We developed a rigorous data processing workflow using tools like Sherpa and CIAO to handle archival Chandra X-ray satellite data. Click each node below to view details of the processing steps.
+      </p>
+
+      <div class="pipeline-wrapper">
+        <svg class="pipeline-svg" viewBox="0 0 820 180">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#cbd5e1" />
+            </marker>
+          </defs>
+
+          <!-- Step 1 -->
+          <g class="pipeline-node active" id="step1" onclick="showStep(1)">
+            <rect x="10" y="20" width="160" height="50" />
+            <text x="90" y="40" class="step-num">STEP 1</text>
+            <text x="90" y="55" class="title">Chandra Data Download</text>
+          </g>
+          <path d="M 170 45 L 210 45" class="pipeline-arrow" />
+
+          <!-- Step 2 -->
+          <g class="pipeline-node" id="step2" onclick="showStep(2)">
+            <rect x="220" y="20" width="160" height="50" />
+            <text x="300" y="40" class="step-num">STEP 2</text>
+            <text x="300" y="55" class="title">Reprocess &amp; Reproject</text>
+          </g>
+          <path d="M 380 45 L 420 45" class="pipeline-arrow" />
+
+          <!-- Step 3 -->
+          <g class="pipeline-node" id="step3" onclick="showStep(3)">
+            <rect x="430" y="20" width="160" height="50" />
+            <text x="510" y="40" class="step-num">STEP 3</text>
+            <text x="510" y="55" class="title">Point Source Subtraction</text>
+          </g>
+          <path d="M 590 45 L 630 45" class="pipeline-arrow" />
+
+          <!-- Step 4 -->
+          <g class="pipeline-node" id="step4" onclick="showStep(4)">
+            <rect x="640" y="20" width="160" height="50" />
+            <text x="720" y="40" class="step-num">STEP 4</text>
+            <text x="720" y="55" class="title">Observation Merging</text>
+          </g>
+
+          <!-- Downwards link from step 4 to step 5 -->
+          <path d="M 720 70 L 720 95 L 720 110" class="pipeline-arrow" />
+
+          <!-- Step 5 (Bottom Row, Right to Left) -->
+          <g class="pipeline-node" id="step8" onclick="showStep(8)">
+            <rect x="10" y="110" width="160" height="50" />
+            <text x="90" y="130" class="step-num">STEP 8</text>
+            <text x="90" y="145" class="title">Spectral Analysis</text>
+          </g>
+
+          <path d="M 220 135 L 180 135" class="pipeline-arrow" style="marker-end: url(#arrowhead);" />
+
+          <!-- Step 6 -->
+          <g class="pipeline-node" id="step7" onclick="showStep(7)">
+            <rect x="220" y="110" width="160" height="50" />
+            <text x="300" y="130" class="step-num">STEP 7</text>
+            <text x="300" y="145" class="title">Excess Regions Definition</text>
+          </g>
+          <path d="M 430 135 L 390 135" class="pipeline-arrow" style="marker-end: url(#arrowhead);" />
+
+          <!-- Step 7 -->
+          <g class="pipeline-node" id="step6" onclick="showStep(6)">
+            <rect x="430" y="110" width="160" height="50" />
+            <text x="510" y="130" class="step-num">STEP 6</text>
+            <text x="510" y="145" class="title">Residual Map Creation</text>
+          </g>
+          <path d="M 640 135 L 600 135" class="pipeline-arrow" style="marker-end: url(#arrowhead);" />
+
+          <!-- Step 8 -->
+          <g class="pipeline-node" id="step5" onclick="showStep(5)">
+            <rect x="640" y="110" width="160" height="50" />
+            <text x="720" y="130" class="step-num">STEP 5</text>
+            <text x="720" y="145" class="title">Center Fitting via Sherpa</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Interactive detail card -->
+      <div class="info-panel" id="step-info-panel">
+        <h4 id="panel-title">Step 1: Chandra Data Download</h4>
+        <p id="panel-desc">We downloaded X-ray archival observations from the Chandra X-ray database, selecting clusters with high exposure time and appropriate redshift. Primary target clusters included WCC systems such as A2142, A3571, A2657, A1651, A3266, and A0576.</p>
+      </div>
+    </section>
+
+    <!-- Results / Data Visualization -->
+    <section class="project-section">
+      <h2 class="section-title">Thermodynamic Slope &amp; Ratios</h2>
+      <p class="abstract-text">
+        By examining the ratio of thermodynamic parameters between the positive and negative density excess regions (slopes of regression lines), we can distinguish the nature of the perturbations:
+      </p>
+
+      <div class="comparison-grid">
+        <!-- Weak Cool Core Results -->
+        <div class="comparison-card">
+          <h3><i class="fa-solid fa-chart-simple" style="color: #3b82f6;"></i> Weak Cool Core (WCC)</h3>
+          <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem;">Average fitted slope across WCC targets:</p>
+          
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Pressure Ratio</span>
+              <span>0.92 &plusmn; 0.03</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-wcc" style="width: 92%;"></div>
+              <div class="ideal-marker" style="left: 100%;"><span class="marker-label">1.0 (Isobaric)</span></div>
+            </div>
+          </div>
+
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Temperature Ratio</span>
+              <span>1.20 &plusmn; 0.05</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-wcc" style="width: 80%;"></div> <!-- Normalized relative to max -->
+            </div>
+          </div>
+
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Entropy Ratio</span>
+              <span>1.43 &plusmn; 0.10</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-wcc" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Abundance Ratio</span>
+              <span>0.78 &plusmn; 0.08</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-wcc" style="width: 63%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strong Cool Core Results -->
+        <div class="comparison-card">
+          <h3><i class="fa-solid fa-chart-simple" style="color: #0f172a;"></i> Strong Cool Core (SCC)</h3>
+          <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem;">Comparison parameters (Ueda et al. 2020):</p>
+          
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Pressure Ratio</span>
+              <span>0.98 &plusmn; 0.05</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-scc" style="width: 98%;"></div>
+              <div class="ideal-marker" style="left: 100%;"><span class="marker-label">1.0 (Isobaric)</span></div>
+            </div>
+          </div>
+
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Temperature Ratio</span>
+              <span>1.18 &plusmn; 0.05</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-scc" style="width: 78%;"></div>
+            </div>
+          </div>
+
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Entropy Ratio</span>
+              <span>1.38 &plusmn; 0.09</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-scc" style="width: 92%;"></div>
+            </div>
+          </div>
+
+          <div class="comparison-bar-group">
+            <div class="comparison-bar-label">
+              <span>Abundance Ratio</span>
+              <span>1.24 &plusmn; 0.28</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill bar-scc" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="scientific-insights">
+        <li><strong>Theoretical Models</strong>: If the gas sloshing is slow and balanced, it is <em>isobaric</em>, meaning the pressure ratio of excess regions should be very close to <span class="highlight-equation">1.0</span> (marked in red). </li>
+        <li><strong>WCC Characteristics</strong>: Our analysis shows that WCC clusters yield a combined pressure slope of <span class="highlight-equation">0.92 &plusmn; 0.03</span>, indicating that while gas sloshing is active, the thermodynamic state is not perfectly isobaric.</li>
+        <li><strong>Physical Interpretation</strong>: Weak cool core perturbations appear to be transitional, potentially involving a combination of isothermal sloshing and adiabatic processes (such as sound waves or minor shocks). Perfect isothermal sloshing is ruled out since the temperature ratio is significantly above 1.0.</li>
+      </ul>
+    </section>
+
+    <!-- Key Capabilities Demonstrated -->
+    <section class="project-section">
+      <h2 class="section-title">Applied Technical Competency</h2>
+      <ul class="scientific-insights" style="list-style-type: none; padding-left: 0;">
+        <li style="margin-bottom: 1.25rem;">
+          <strong style="color: var(--accent-color); font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">
+            <i class="fa-brands fa-python"></i> Scientific Computing (Python)
+          </strong>
+          Developed Python analysis scripts utilizing NumPy, SciPy, and AstroPy to read, extract, and statistically fit thermodynamic profiles from X-ray datasets.
+        </li>
+        <li style="margin-bottom: 1.25rem;">
+          <strong style="color: var(--accent-color); font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">
+            <i class="fa-solid fa-terminal"></i> Astronomical Pipelines &amp; CLI Workflows
+          </strong>
+          Configured complex environment pipelines utilizing the CIAO software package and Sherpa fitting library, automating point-source removal and elliptical modeling.
+        </li>
+        <li style="margin-bottom: 1.25rem;">
+          <strong style="color: var(--accent-color); font-size: 1.1rem; display: block; margin-bottom: 0.25rem;">
+            <i class="fa-solid fa-calculator"></i> Spectral Fitting &amp; Modeling
+          </strong>
+          Fitted multi-temperature plasma models (such as XSPEC APEC models) to extract temperature, electron density, abundance, and calculate derived thermodynamics.
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    const stepsData = {
+      1: {
+        title: "Step 1: Chandra Data Download",
+        desc: "We downloaded X-ray archival observations from the Chandra X-ray database, selecting clusters with high exposure time and appropriate redshift. Primary target clusters included WCC systems such as A2142, A3571, A2657, A1651, A3266, and A0576."
+      },
+      2: {
+        title: "Step 2: Reprocess & Reproject",
+        desc: "Using the Chandra Interactive Analysis of Observations (CIAO) software package, we reprocessed raw data files to apply the latest calibrations. We reprojected multiple observation IDs for each cluster to align them to a common coordinate reference frame."
+      },
+      3: {
+        title: "Step 3: Point Source Subtraction",
+        desc: "To isolate emission from the diffuse Intracluster Medium, we detected point sources (e.g. active galactic nuclei, background sources) using 'wavdetect' and filled the source regions with surrounding diffuse emission using 'dmfilth'."
+      },
+      4: {
+        title: "Step 4: Observation Merging",
+        desc: "We merged aligned and cleaned observations to produce deep co-added images and exposure maps, maximizing the signal-to-noise ratio in the outer regions of the cluster cores."
+      },
+      5: {
+        title: "Step 5: Center Fitting via Sherpa",
+        desc: "We modeled the 2D surface brightness profile of each cluster. Using the Sherpa library, we fitted 2D beta-models to identify the elliptical centroids, providing a robust coordinate origin for radial profiling."
+      },
+      6: {
+        title: "Step 6: Residual Map Creation",
+        desc: "By subtracting the smooth, symmetric model from the merged X-ray image, we generated residual maps. These maps highlighted asymmetric features, spirals, and density perturbations indicative of gas sloshing."
+      },
+      7: {
+        title: "Step 7: Excess Regions Definition",
+        desc: "Based on the residual map structure, we defined positive excess (high density) and negative excess (low density) regions, matching the features formed by gas sloshing."
+      },
+      8: {
+        title: "Step 8: Spectral Analysis",
+        desc: "We extracted and fitted spectra for each region to determine temperature (kT) and electron density (ne). These values were used to compute the local pressure (Pe = kT * ne) and entropy (Ke = kT * ne^-1.5) to derive thermodynamic slopes."
+      }
+    };
+
+    function showStep(stepNum) {
+      // Deactivate all steps
+      document.querySelectorAll('.pipeline-node').forEach(node => {
+        node.classList.remove('active');
+      });
+      
+      // Activate selected step
+      const selectedNode = document.getElementById(`step${stepNum}`);
+      if (selectedNode) {
+        selectedNode.classList.add('active');
+      }
+
+      // Update panel content
+      const panel = document.getElementById('step-info-panel');
+      const data = stepsData[stepNum];
+      if (data) {
+        panel.style.opacity = 0;
+        setTimeout(() => {
+          document.getElementById('panel-title').innerText = data.title;
+          document.getElementById('panel-desc').innerText = data.desc;
+          panel.style.opacity = 1;
+        }, 150);
+      }
+    }
+  </script>
+</body>
+</html>
