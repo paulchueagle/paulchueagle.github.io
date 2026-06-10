@@ -8,139 +8,249 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     :root {
-      --bg-color: #ffffff;
-      --text-main: #333333;
-      --text-muted: #666666;
-      --accent: #2563eb; /* moderncvcolor{blue} */
-      --border: #e5e7eb;
+      --bg-body: #f8fafc;
+      --bg-paper: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent-color: #2563eb; 
+      --accent-light: #eff6ff;
+      --border-color: #e2e8f0;
+      --highlight-bg: #dbeafe;
+      --highlight-text: #1e40af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
+      background-color: var(--bg-body);
       color: var(--text-main);
       line-height: 1.6;
-      margin: 0;
-      padding: 2rem 1rem;
+      -webkit-font-smoothing: antialiased;
+      padding: 3rem 1rem;
     }
 
     .cv-container {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
-      background: var(--bg-color);
-      padding: 3rem 4rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      background: var(--bg-paper);
+      padding: 4rem 5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* Top Right Action Button */
+    .download-btn {
+      position: absolute;
+      top: 2.5rem;
+      right: 3rem;
+      background-color: var(--accent-light);
+      color: var(--accent-color);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
     /* Header */
     .header {
-      text-align: center;
-      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .name {
-      font-size: 2.5rem;
-      font-weight: 300;
+      font-family: 'Merriweather', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
       color: var(--text-main);
-      margin: 0 0 0.5rem 0;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
     }
 
     .title {
-      font-size: 1.25rem;
-      color: var(--accent);
-      margin: 0 0 1rem 0;
-      font-weight: 400;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .contact-info {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
       gap: 1.5rem;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .contact-item i {
+      color: var(--accent-color);
     }
 
     .contact-info a {
       color: var(--text-muted);
       text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-color);
     }
 
     /* Sections */
     .section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
 
     .section-title {
-      font-size: 1.25rem;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.25rem;
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
       margin-bottom: 1.5rem;
-      font-weight: 500;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-color);
+      margin-left: 0.5rem;
     }
 
     /* Entries */
     .entry {
       display: grid;
       grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      margin-bottom: 1.25rem;
+      gap: 2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
     }
 
     .entry-date {
       font-size: 0.9rem;
-      color: var(--text-muted);
-      text-align: right;
+      font-weight: 500;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      padding-top: 0.2rem;
     }
 
     .entry-content h3 {
-      margin: 0 0 0.25rem 0;
-      font-size: 1rem;
+      margin: 0 0 0.35rem 0;
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--text-main);
+      line-height: 1.3;
     }
 
     .entry-org {
       font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .entry-org span.location {
+      font-size: 0.85rem;
       font-style: italic;
-      color: var(--text-main);
-      margin-bottom: 0.25rem;
+      color: #94a3b8;
     }
 
     .entry-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
+      font-size: 0.95rem;
+      color: #475569;
       margin: 0;
+      line-height: 1.6;
     }
 
     /* Skills */
     .skill-list {
       list-style: none;
-      padding: 0;
-      margin: 0;
     }
 
     .skill-item {
       display: grid;
       grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
+      gap: 2rem;
+      margin-bottom: 1.2rem;
+      align-items: start;
     }
 
     .skill-category {
-      text-align: right;
       font-weight: 600;
       color: var(--text-main);
+      padding-top: 0.2rem;
     }
 
-    .skill-details {
-      color: var(--text-muted);
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background-color: #f1f5f9;
+      color: #475569;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Highlighted Skills */
+    .tag.highlight {
+      background-color: var(--highlight-bg);
+      color: var(--highlight-text);
+      border-color: #bfdbfe;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+    }
+
+    .tag.highlight i {
+      margin-right: 0.3rem;
     }
 
     @media print {
@@ -151,19 +261,36 @@
       .cv-container {
         box-shadow: none;
         padding: 0;
+        max-width: 100%;
+      }
+      .download-btn {
+        display: none !important;
+      }
+      .tag {
+        border: 1px solid #000;
+        background: transparent !important;
+        color: #000 !important;
+      }
+      .tag.highlight {
+        font-weight: bold;
+        border-width: 2px;
       }
     }
     
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .entry, .skill-item {
         grid-template-columns: 1fr;
-        gap: 0.25rem;
-      }
-      .entry-date, .skill-category {
-        text-align: left;
+        gap: 0.5rem;
       }
       .cv-container {
-        padding: 1.5rem;
+        padding: 2.5rem 2rem;
+      }
+      .download-btn {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 1.5rem;
+        display: inline-flex;
       }
     }
   </style>
@@ -171,14 +298,29 @@
 <body>
 
   <div class="cv-container">
+    
+    <!-- Top Right Action -->
+    <button onclick="window.print()" class="download-btn" title="Download CV as PDF">
+      <i class="fa-solid fa-download"></i> Download CV
+    </button>
+
     <!-- Header -->
     <header class="header">
       <h1 class="name">Cheng-Chi Chu</h1>
       <h2 class="title">Research Assistant</h2>
       <div class="contact-info">
-        <span><a href="mailto:eaglepaul@icloud.com">eaglepaul@icloud.com</a></span>
-        <span>•</span>
-        <span><a href="tel:+886982248890">+886 982248890</a></span>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:eaglepaul@icloud.com">eaglepaul@icloud.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+886982248890">+886 982248890</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-github"></i>
+          <a href="https://github.com/paulchueagle" target="_blank">paulchueagle</a>
+        </div>
       </div>
     </header>
 
@@ -190,7 +332,10 @@
         <div class="entry-date">Aug 2023 – Jan 2024</div>
         <div class="entry-content">
           <h3>Physics Graduate Program (Incomplete)</h3>
-          <div class="entry-org">The George Washington University, Washington, DC, USA</div>
+          <div class="entry-org">
+            The George Washington University
+            <span class="location">Washington, DC, USA</span>
+          </div>
           <p class="entry-desc">Relevant courses: Advanced Mechanics, Mathematical Methods for Physics, Computational Physics.</p>
         </div>
       </div>
@@ -199,7 +344,10 @@
         <div class="entry-date">Sep 2019 – Jun 2021</div>
         <div class="entry-content">
           <h3>B.S. in Applied Physics</h3>
-          <div class="entry-org">National University of Kaohsiung, Kaohsiung, Taiwan</div>
+          <div class="entry-org">
+            National University of Kaohsiung
+            <span class="location">Kaohsiung, Taiwan</span>
+          </div>
           <p class="entry-desc">Overall GPA: 79.05/100, Major GPA: 80.57/100.</p>
         </div>
       </div>
@@ -208,7 +356,10 @@
         <div class="entry-date">Sep 2017 – Jun 2019</div>
         <div class="entry-content">
           <h3>Applied Chemistry (Transfer)</h3>
-          <div class="entry-org">National University of Kaohsiung, Kaohsiung, Taiwan</div>
+          <div class="entry-org">
+            National University of Kaohsiung
+            <span class="location">Kaohsiung, Taiwan</span>
+          </div>
         </div>
       </div>
     </section>
@@ -221,7 +372,10 @@
         <div class="entry-date">April 2024 – Present</div>
         <div class="entry-content">
           <h3>Research Assistant, ACCRL Lab</h3>
-          <div class="entry-org">Academia Sinica - Research Center for Environmental Changes (RCEC), Taiwan</div>
+          <div class="entry-org">
+            Academia Sinica - Research Center for Environmental Changes (RCEC)
+            <span class="location">Taiwan</span>
+          </div>
           <p class="entry-desc">Developed and optimized data-processing algorithms to enhance experimental analysis, assisted Prof. Di-Jing Huang in refining methodologies, and managed lab operations, including equipment procurement and consulting coordination.</p>
         </div>
       </div>
@@ -230,7 +384,10 @@
         <div class="entry-date">Aug 2024 – July 2025</div>
         <div class="entry-content">
           <h3>Research Assistant, TPS 41A Soft X-ray Scattering</h3>
-          <div class="entry-org">National Synchrotron Radiation Research Center (NSRRC), Taiwan</div>
+          <div class="entry-org">
+            National Synchrotron Radiation Research Center (NSRRC)
+            <span class="location">Taiwan</span>
+          </div>
           <p class="entry-desc">Developed and optimized data-processing algorithms to enhance experimental analysis, assisted Prof. Di-Jing Huang in refining methodologies, and managed lab operations, including equipment procurement and consulting coordination.</p>
         </div>
       </div>
@@ -239,7 +396,10 @@
         <div class="entry-date">Jun 2021 – Aug 2021</div>
         <div class="entry-content">
           <h3>Taiwan Top Science Student Program</h3>
-          <div class="entry-org">National Tsing Hua University, Taiwan</div>
+          <div class="entry-org">
+            National Tsing Hua University
+            <span class="location">Taiwan</span>
+          </div>
           <p class="entry-desc">Studied limb-darkening models under Prof. Ing-Guey Jiang, computed limb-darkening coefficients using PHOENIX and ATLAS models, and revised Espinoza’s code to improve accuracy.</p>
         </div>
       </div>
@@ -248,7 +408,10 @@
         <div class="entry-date">Oct 2019 – Jun 2021</div>
         <div class="entry-content">
           <h3>Solid-State Theoretical Laboratory</h3>
-          <div class="entry-org">National University of Kaohsiung, Taiwan</div>
+          <div class="entry-org">
+            National University of Kaohsiung
+            <span class="location">Taiwan</span>
+          </div>
           <p class="entry-desc">Assisted Prof. Shih-Jye Sun in deriving Marcus Formula and applying it to the I-V curve of RRAM; participated in College of Science research exhibition for poster presentation.</p>
         </div>
       </div>
@@ -257,7 +420,10 @@
         <div class="entry-date">Jul 2020 – Aug 2020</div>
         <div class="entry-content">
           <h3>Summer Student Program</h3>
-          <div class="entry-org">Academia Sinica – Institute of Astronomy and Astrophysics (ASIAA), Taiwan</div>
+          <div class="entry-org">
+            Academia Sinica – Institute of Astronomy and Astrophysics (ASIAA)
+            <span class="location">Taiwan</span>
+          </div>
           <p class="entry-desc">Analyzed thermodynamic and dynamical properties of galaxy clusters, identified heating mechanisms, and presented findings on gas density perturbation.</p>
         </div>
       </div>
@@ -265,15 +431,33 @@
 
     <!-- Skills -->
     <section class="section">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title">Technical Skills</h2>
       <ul class="skill-list">
         <li class="skill-item">
-          <div class="skill-category">Programming</div>
-          <div class="skill-details">Python (NumPy, SciPy, Matplotlib, Pandas, PyQt)</div>
+          <div class="skill-category">Core Expertise</div>
+          <div class="skill-tags">
+            <span class="tag highlight"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="tag highlight"><i class="fa-solid fa-brain"></i> Machine Learning</span>
+            <span class="tag highlight"><i class="fa-solid fa-terminal"></i> CLI Workflow</span>
+          </div>
         </li>
         <li class="skill-item">
-          <div class="skill-category">Operating Systems</div>
-          <div class="skill-details">Linux (Command-line tasks, system navigation) and Unix-like environments</div>
+          <div class="skill-category">Python Libraries</div>
+          <div class="skill-tags">
+            <span class="tag">NumPy</span>
+            <span class="tag">SciPy</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">PyQt</span>
+          </div>
+        </li>
+        <li class="skill-item">
+          <div class="skill-category">Systems</div>
+          <div class="skill-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Unix Environments</span>
+            <span class="tag">System Navigation</span>
+          </div>
         </li>
       </ul>
     </section>
